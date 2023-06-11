@@ -1,0 +1,17 @@
+import { Routes, Route } from "react-router-dom";
+import { LayoutLanding } from "../Layout/LayoutLanding";
+import { Home } from "../pages/Home";
+
+const Router = (): JSX.Element => {
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<LayoutLanding />}>
+          <Route path="" element={<Home />} />
+        </Route>
+      </Routes>
+    </>
+  );
+};
+
+export default Router;
