@@ -5,7 +5,7 @@ import client from "../../services/client";
 export interface CharactersState {
   loading: boolean;
   results: [];
-  resultsHQ: [];
+  resultsComicsHQ: [];
   resultsCharacterId: [];
 
   offset?: number;
@@ -18,7 +18,7 @@ const initialState: CharactersState = {
   loading: false,
   results: [],
   resultsCharacterId: [],
-  resultsHQ: [],
+  resultsComicsHQ: [],
   offset: 0,
   limit: 20,
   total: 0,
@@ -43,6 +43,16 @@ export const fetchCharacterId = createAsyncThunk(
   }
 );
 
+export const fetchComicsHQ = createAsyncThunk(
+  "characters/fetchComicsHQ",
+  async () => {
+    const response = await client.get("/comics", {
+      params: { offset: 3, limit: 5 },
+    });
+    return response.data;
+  }
+);
+
 export const characterSlice = createSlice({
   name: "characters",
   initialState,
@@ -56,6 +66,15 @@ export const characterSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    builder.addCase(fetchComicsHQ.fulfilled, (state, action) => {
+      state.loading = false;
+      state.resultsComicsHQ = action.payload.data.results;
+    });
+
+    builder.addCase(fetchComicsHQ.pending, (state) => {
+      state.loading = true;
+    });
+
     builder.addCase(fetchCharacters.fulfilled, (state, action) => {
       state.loading = false;
       state.results = action.payload.data.results;
@@ -66,17 +85,14 @@ export const characterSlice = createSlice({
     });
 
     builder.addCase(fetchCharacters.pending, (state) => {
-      // Add user to the state array
       state.loading = true;
     });
 
     builder.addCase(fetchCharacterId.fulfilled, (state, action) => {
-      // Add user to the state array
       state.loading = false;
       state.resultsCharacterId = action.payload.data.results;
     });
     builder.addCase(fetchCharacterId.pending, (state) => {
-      // Add user to the state array
       state.loading = true;
     });
   },

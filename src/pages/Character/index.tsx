@@ -47,8 +47,6 @@ const Character = () => {
     (state: StateCharacterId) => state?.character
   );
 
-  console.log(resultsCharacterId);
-
   const { id } = useParams<{ id: string }>();
 
   useEffect(() => {
@@ -60,11 +58,11 @@ const Character = () => {
 
   return (
     <section className="container mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 h-screen w-screen my-5">
-      <div className="flex items-center justify-start">
+      <div className="flex items-center justify-start my-5">
         <button
           type="button"
           onClick={() => navigate(-1)}
-          className="flex items-center justify-center  uppercase text-3xl font-semibold text-gray-600 transition-all duration-200 bg-transparent border border-none    hover:text-red-600 focus:bg-red-600 focus:text-white
+          className="flex items-center justify-center gap-3 uppercase text-3xl font-semibold text-gray-600 transition-all duration-200 bg-transparent border border-none    hover:text-red-600  
           "
         >
           <HiArrowNarrowLeft className="text-3xl" />
