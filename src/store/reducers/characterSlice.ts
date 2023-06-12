@@ -20,13 +20,22 @@ export const fetchCharacters = createAsyncThunk(
   }
 );
 
-export const counterSlice = createSlice({
+export const fetchCharacterId = createAsyncThunk(
+  "characters/fetchCharacterId",
+  async (id: string) => {
+    const response = await client.get(`/characters/${id}`);
+    return response.data;
+  }
+);
+
+export const characterSlice = createSlice({
   name: "characters",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchCharacters.fulfilled, (state, action) => {
       // Add user to the state array
+      state.loading = false;
       state.results = action.payload.data.results;
     });
 
@@ -39,4 +48,4 @@ export const counterSlice = createSlice({
 
 // Action creators are generated for each case reducer function
 
-export default counterSlice.reducer;
+export default characterSlice.reducer;

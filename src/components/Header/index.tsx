@@ -1,36 +1,78 @@
-interface Header {
-  children: React.ReactNode;
-}
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { HiMenu, HiX } from "react-icons/hi";
+import { NavIem } from "./nav-item";
+import { GiSecretBook } from "react-icons/gi";
+
+const NAV_ITEMS = [
+  {
+    label: "Inicio",
+    href: "/",
+  },
+  {
+    label: "Personagens",
+    href: "/personagens",
+  },
+];
 
 const Header = () => {
-  return (
-    <header className="bg-gray-700 h-16 flex justify-between items-center px-4 sm:px-6 lg:px-8">
-      <nav className=" lex items-center justify-between flex-wrap">
-        <div className="flex items-center flex-shrink-0 text-white mr-6">
-          <img
-            src="https://tailwindui.com/img/logos/workflow-mark-on-dark.svg"
-            alt="Workflow"
-            className="fill-current h-8 w-8 mr-2"
-          />
-          <span className="font-semibold text-xl tracking-tight">
-            Tailwind CSS
-          </span>
-        </div>
+  const [menuOpen, setMenuOpen] = useState(false);
 
-        <div className="block lg:hidden">
-          <button className="flex items-center px-3 py-2 border rounded text-gray-200 border-gray-400 hover:text-white hover:border-white">
-            <svg
-              className="fill-current h-3 w-3"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <title>Menu</title>
-              <path d="M0 0h20v20H0z" fill="none" />
-              <path d="M0 4h20v1.5H0zM0 9.5h20V11H0zM0 15h20v1.5H0z" />
-            </svg>
-          </button>
-        </div>
-      </nav>
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 h-16 bg-header-background ">
+      <div className="container flex items-center justify-between w-full mx-auto h-full max-w-7xl">
+        <Link to="/">
+          <div className="flex items-center justify-center  rounded-full gap-3">
+            <GiSecretBook className="text-3xl text-white" />
+            <h3 className="text-2xl font-bold text-white ">
+              MINHAS <span className="text-red-500">.HQS</span>
+            </h3>
+          </div>
+        </Link>
+        <nav
+          className={`hidden ${
+            menuOpen ? "block" : "lg:flex"
+          } lg:items-center lg:justify-center lg:space-x-10`}
+        >
+          <ul className="flex gap-4 sm:gap-10 text-white">
+            {NAV_ITEMS.map((item, index) => (
+              <NavIem {...item} key={index} />
+            ))}
+          </ul>
+        </nav>
+
+        {menuOpen && (
+          <div
+            className="sm:hidden absolute top-16 left-0 w-full bg-header-background text-white shadow-md py-2 
+            "
+          >
+            <nav className="flex flex-col items-center justify-center space-y-2 ">
+              <ul className="flex flex-col space-y-2 ">
+                {NAV_ITEMS.map((item, index) => (
+                  <li key={item.label}>
+                    <NavIem {...item} key={index} />
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+        )}
+
+        <button
+          className="block sm:hidden text-white hover:text-gray-300"
+          onClick={toggleMenu}
+        >
+          {menuOpen ? (
+            <HiX className="text-4xl" />
+          ) : (
+            <HiMenu className="text-4xl" />
+          )}
+        </button>
+      </div>
     </header>
   );
 };
