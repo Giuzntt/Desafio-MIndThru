@@ -5,7 +5,7 @@ interface LayoutProps {
 const Container = ({ children }: LayoutProps) => {
   return (
     <main
-      className="container my-6 mx-auto px-4 md:px-12 bg-gray-100
+      className="container my-6 mx-auto px-4 md:px-12 
     "
     >
       {children}

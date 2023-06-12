@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { isEmpty } from "lodash";
 
 interface CardProps {
   title: string;
@@ -38,17 +39,21 @@ export const Card = ({ title, date, description, image, to }: CardProps) => {
             {title}
           </a>
         </p>
-        <p className="mt-4 text-base text-gray-600">
-          {description.length > 200
-            ? description.substring(0, 200) + "..."
-            : description}
+        <p
+          className="mt-4 text-base text-gray-600 line-clamp-3 leading-7
+        "
+        >
+          {isEmpty(description)
+            ? "Sem descrição"
+            : description.slice(0, 30) + "..."}
         </p>
+
         <Link
           to={to}
           title=""
-          className="inline-flex items-center justify-center pb-0.5 mt-5 text-base font-semibold text-blue-600 transition-all duration-200 border-b-2 border-transparent hover:border-blue-600 focus:border-blue-600"
+          className="inline-flex items-center justify-center pb-0.5 mt-5 text-base font-semibold text-red-600 transition-all duration-200 border-b-2 border-transparent hover:border-red-600 focus:border-red-600"
         >
-          Continue lendo
+          Ler mais...
           <svg
             className="w-5 h-5"
             xmlns="http://www.w3.org/2000/svg"
