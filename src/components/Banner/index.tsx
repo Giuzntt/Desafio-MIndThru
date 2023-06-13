@@ -16,14 +16,11 @@ export const Banner = () => {
   return (
     <motion.section
       id="home"
-      className="bg-[url(/banner.jpg)] bg-cover bg-center bg-no-repeat"
+      className="bg-[url(/banner.jpg)] bg-cover bg-center bg-no-repeat sm:bg-fixed sm:bg-center
+      "
       variants={variants}
       initial="initial"
       animate="scroll"
-      style={{
-        backgroundAttachment: "fixed",
-        backgroundImage: "url(/banner.jpg)",
-      }}
     >
       <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl h-[800px] w-full">
         <div
