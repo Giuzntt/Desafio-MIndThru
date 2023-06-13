@@ -57,7 +57,7 @@ const Character = () => {
   }, [id]);
 
   return (
-    <section className="container mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 h-screen w-screen my-5">
+    <section className="container mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 h-full w-full my-5">
       <div className="flex items-center justify-start my-5">
         <button
           type="button"
@@ -128,7 +128,10 @@ const Character = () => {
               </h3>
 
               {item.stories.items.map((item) => (
-                <p className="text-gray-600 leading-relaxed w-full">
+                <p
+                  className="gap-2 text-gray-600 leading-relaxed "
+                  key={item.name}
+                >
                   {item.name}
                 </p>
               ))}

@@ -7,6 +7,7 @@ export interface CharactersState {
   results: [];
   resultsComicsHQ: [];
   resultsCharacterId: [];
+  resultsComicsHQId: [];
 
   offset?: number;
   limit?: number;
@@ -19,6 +20,7 @@ const initialState: CharactersState = {
   results: [],
   resultsCharacterId: [],
   resultsComicsHQ: [],
+  resultsComicsHQId: [],
   offset: 0,
   limit: 20,
   total: 0,
@@ -45,10 +47,17 @@ export const fetchCharacterId = createAsyncThunk(
 
 export const fetchComicsHQ = createAsyncThunk(
   "characters/fetchComicsHQ",
-  async () => {
+  async (idOffSet: string) => {
     const response = await client.get("/comics", {
-      params: { offset: 3, limit: 5 },
+      params: { offset: idOffSet, limit: 5 },
     });
+    return response.data;
+  }
+);
+export const fetchComicsHQId = createAsyncThunk(
+  "characters/fetchComicsHQId",
+  async (id: string) => {
+    const response = await client.get(`/comics/${id}`);
     return response.data;
   }
 );
@@ -93,6 +102,14 @@ export const characterSlice = createSlice({
       state.resultsCharacterId = action.payload.data.results;
     });
     builder.addCase(fetchCharacterId.pending, (state) => {
+      state.loading = true;
+    });
+
+    builder.addCase(fetchComicsHQId.fulfilled, (state, action) => {
+      state.loading = false;
+      state.resultsComicsHQId = action.payload.data.results;
+    });
+    builder.addCase(fetchComicsHQId.pending, (state) => {
       state.loading = true;
     });
   },

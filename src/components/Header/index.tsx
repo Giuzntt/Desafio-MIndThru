@@ -7,11 +7,11 @@ import { GiSecretBook } from "react-icons/gi";
 const NAV_ITEMS = [
   {
     label: "Inicio",
-    href: "/",
+    to: "home",
   },
   {
     label: "Personagens",
-    href: "/personagens",
+    to: "characters",
   },
 ];
 
