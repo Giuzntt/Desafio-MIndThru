@@ -8,10 +8,12 @@ const NAV_ITEMS = [
   {
     label: "Inicio",
     to: "home",
+    href: "/",
   },
   {
     label: "Personagens",
     to: "characters",
+    href: "/",
   },
 ];
 

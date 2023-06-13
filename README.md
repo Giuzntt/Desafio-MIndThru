@@ -6,6 +6,14 @@ Deploy do projeto: [Aqui](https://desafio-mindthru.vercel.app/)
 
 ## Quais Funcionalidades foram implementadas? 🤔
 
+- [x] Estado Global com Redux
+- [x] Rotas com React Router Dom
+- [x] Rotas manipuladas com React Router Dom + Redux + Hooks
+- [x] Consumo de API com Axios
+- [x] Tipagem com Typescript
+- [x] Componentização
+- [x] Listagem de HQS
+- [x] Uso de Hooks, Lodash e Tailwind CSS
 - [x] Listagem de todos os personagens
 - [x] Paginação dos personagens
 - [x] Eventos de Scroll
