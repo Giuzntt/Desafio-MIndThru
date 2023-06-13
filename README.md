@@ -4,6 +4,19 @@ Deploy do projeto: [Aqui](https://desafio-mindthru.vercel.app/)
 
 ## 🔑 Atenção: O Token de acesso a API está inserido, para evitar problemas na hora de rodar o projeto, mas o ideal é que ele seja inserido em um arquivo .env, para evitar problemas de segurança.
 
+## Quais Funcionalidades foram implementadas? 🤔
+
+- [x] Listagem de todos os personagens
+- [x] Paginação dos personagens
+- [x] Eventos de Scroll
+- [x] Busca de personagens por ID
+- [x] HQS Dinâmicas na Home
+- [x] Detalhes de cada personagem
+- [x] Responsividade para Mobile, nos valores md, sm, lg e xl. Seguindo o padrão do Tailwind CSS.
+- [x] Animações com Framer Motion
+- [x] Loading de carregamento
+- [x] Tratamento de erros
+
 ## Quais tecnologias foram utilizadas? 🤔
 
 <img  align="center" alt="Rafa-React" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg">
