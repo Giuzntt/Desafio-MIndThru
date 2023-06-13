@@ -1,22 +1,38 @@
+import { Link } from "react-router-dom";
+import { FaCode, FaGithub, FaLinkedin } from "react-icons/fa";
+
 const Footer = (): JSX.Element => {
   return (
-    <footer
-      className="fixed bottom-0 left-0 right-0 z-50 h-16 bg-header-background
-    "
-    >
-      <div className="flex justify-between items-center border-t-2 border-gray-200 py-8 md:justify-start md:space-x-10 max-w-7xl">
-        <div className="flex justify-start space-x-6 md:order-2">
-          <a href="#" className="text-gray-400 hover:text-gray-500">
-            <span className="sr-only">Facebook</span>
-          </a>
-          <a href="#" className="text-gray-400 hover:text-gray-500">
-            <span className="sr-only">Twitter</span>
-          </a>
-        </div>
-        <div className="md:order-1">
-          <p className="text-center text-base text-gray-400">
-            &copy; 2021 Tailwind Labs Inc.
-          </p>
+    <footer className=" py-8 bg-header-background mx-auto">
+      <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl ">
+        <div className="flex items-end justify-between">
+          <h1 className="text-xl font-american_captain text-white text-center">
+            © 2023 - Desenvolvido por Giulianno Zanetti
+          </h1>
+
+          <div className="flex items-center justify-center space-x-6">
+            <Link
+              to="https://www.linkedin.com/in/giulianno-zanetti/"
+              target="_blank"
+            >
+              <FaLinkedin className="w-6 h-6 text-white hover:text-red-500" />
+            </Link>
+
+            <Link to="https://github.com/Giuzntt" target="_blank" className="">
+              <FaGithub
+                className="w-6 h-6 text-white
+                hover:text-red-500
+              "
+              />
+            </Link>
+
+            <Link
+              to="https://github.com/Giuzntt/Desafio-MIndThru"
+              target="_blank"
+            >
+              <FaCode className="w-6 h-6 text-white hover:text-red-500" />
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
