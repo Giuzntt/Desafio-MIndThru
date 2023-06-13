@@ -1,6 +1,6 @@
 # Desafio Processo Seletivo da MindThru 🚀
 
-Deploy do projeto: [Aqui](https://desafio-mindthru.vercel.app/)
+Deploy do projeto: [Aqui](https://desafio-m-ind-thru.vercel.app/)
 
 ## 🔑 Atenção: O Token de acesso a API está inserido, para evitar problemas na hora de rodar o projeto, mas o ideal é que ele seja inserido em um arquivo .env, para evitar problemas de segurança.
 
